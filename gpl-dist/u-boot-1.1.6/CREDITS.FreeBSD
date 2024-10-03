@@ -1,0 +1,61 @@
+
+	C R E D I T S
+
+files
+	fs/ffs/ffs.c
+	common/cmd_ffs.c
+	include/ffs.h
+	include/ffs_fs.h
+	include/ffs_dinode.h
+
+are taken from below source and credits as mentioned below.
+
+CREDITS to original authors as published at:
+http://webcache.googleusercontent.com/search?q=cache:_tOA-3WuBZUJ:
+www.springdaemons.com/stas/u-boot-ffs.patch+&cd=1&hl=en&ct=clnk&gl=in
+also as submitted to U-Boot for consideration
+http://lists.denx.de/pipermail/u-boot/2008-November/042943.html
+
+Copyright (c) 2008 Stanislav Sedov <stas@FreeBSD.org>.
+All rights reserved.
+Copyright (c) 2002 McAfee, Inc.
+All rights reserved.
+
+This software was developed for the FreeBSD Project by Marshall
+Kirk McKusick and McAfee Research,, the Security Research Division of
+McAfee, Inc. under DARPA/SPAWAR contract N66001-01-C-8035 ("CBOSS"), as
+part of the DARPA CHATS research program
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGE.
+
+Copyright (c) 1998 Robert Nordier
+All rights reserved.
+
+Redistribution and use in source and binary forms are freely
+permitted provided that the above copyright notice and this
+paragraph and the following disclaimer are duplicated in all
+such forms.
+
+This software is provided "AS IS" and without any express or
+implied warranties, including, without limitation, the implied
+warranties of merchantability and fitness for a particular
+purpose.

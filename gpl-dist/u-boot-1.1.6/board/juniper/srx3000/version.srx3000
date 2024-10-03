@@ -1,0 +1,3 @@
+$Id: $
+
+1.6:	Lifting the reset of CRM/HDRE card if chassis in HA mode.

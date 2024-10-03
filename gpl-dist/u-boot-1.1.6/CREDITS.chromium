@@ -1,0 +1,42 @@
+
+	C R E D I T S
+
+Following files
+	drivers/tpm/tpm.c
+	drivers/tpm/tpm_tis_lpc.c
+	common/cmd_tpm.c
+	common/hash.c
+	common/cmd_hash.c
+	include/tpm.h
+	include/tis.h
+	include/hash.h
+
+are taken from DENX U-BOOT GPL repositary
+v2013.10.
+
+Source tree link:
+http://git.denx.de/cgi-bin/gitweb.cgi?p=u-boot.git;
+a=tree;h=b6756a15fd1e165107adf57e7c4a393f7dbcba38;
+hb=183acb700378a8cfc5d50a01a65de93fb2c24586
+
+CREDITS: Google Chromium OS Authors
+as committed by following first patch
+http://git.denx.de/?p=u-boot.git;a=commit;
+h=f626799816d04502cd69cc45d2add68de8b199bd
+
+Copyright (c) 2013 The Chromium OS Authors.
+Coypright (c) 2013 Guntermann & Drunck GmbH
+
+SPDX-License-Identifier:     GPL-2.0+
+
+
+Copyright (c) 2012 The Chromium OS Authors.
+
+(C) Copyright 2011
+Joe Hershberger, National Instruments, joe.hershberger@ni.com
+
+(C) Copyright 2000
+Wolfgang Denk, DENX Software Engineering, wd@denx.de.
+
+SPDX-License-Identifier:     GPL-2.0+
+

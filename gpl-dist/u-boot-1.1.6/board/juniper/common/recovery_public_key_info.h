@@ -1,0 +1,86 @@
+/*
+ * $Id$
+ *
+ * public_key_info.h - Public Key info required for recovery
+ * of U-Boot/Loader etc. images 
+ *
+ * Venkanna Thadishetty March 2014
+ *
+ * Copyright (c) 2014, Juniper Networks, Inc.
+ * All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of
+ * the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see
+ * <http://www.gnu.org/licenses/gpl-2.0.html>.
+ */
+
+/* Compiled in the public key values used for verification */
+/* for recovery of U-Boot/Loader images by iCRT */
+ulong modulus_val[96] = {
+
+        0xae1e5447, 0xfdefa204, 0x57fa73f7, 0x41613f59,
+        0x2037de44, 0x2fc27e40, 0x9e9b289f, 0xd9511b27,
+        0xc223e7d1, 0x67b1cf65, 0xa1bad590, 0x09f3368e,
+        0x4d661e11, 0x01c3aaa6, 0x30d26582, 0xa0d8003e,
+        0x18038ccc, 0xcc1eca98, 0x13a884a4, 0x3a8cad87,
+        0x9ee539ab, 0xe2eb1d4e, 0x4e558225, 0x853f39f6,
+        0x8b8e9a62, 0x1d1d2b4d, 0x421c0aba, 0x454e84bb,
+        0x1c8b6e41, 0xc16a165d, 0x71430dd4, 0xa723c36d,
+        0x5648685f, 0xca4e03ce, 0x5acec926, 0xb57f9395,
+        0xdd4414b9, 0xe6a0a48e, 0x5ac1ebbb, 0x35c41ea5,
+        0xce65b273, 0x8e25e0ef, 0x64b0f29d, 0xdf02b35f,
+        0x6ee5795b, 0xb3339c14, 0x4fecd02d, 0x6e7e335b,
+        0xbee3db96, 0x46f6ad24, 0x18ffa00a, 0x5074ab24,
+        0xf416eb41, 0xfd5610b2, 0xb64f0be5, 0x39e73ad4,
+        0x75eb4198, 0x506e031c, 0xf39193a9, 0xcc1ff71d,
+        0x9aec959e, 0xb3500a7c, 0xcad4f6bc, 0xe6e8760f,
+        0x2c57d498, 0x5adfc8f1, 0xa1300b23, 0xb08b7c9c,
+        0xc5dd33cb, 0x3ef2bac5, 0x1da1a042, 0x84f4b592,
+        0xf34dff7a, 0xa84ed005, 0xaefae953, 0x68ffa52d,
+        0x01ac2767, 0x61ecb8c9, 0x95409732, 0xdecf5392,
+        0x3c6ec5cd, 0xcdba564e, 0x79c07161, 0x6d8b48ec,
+        0x1f5db094, 0x255572fd, 0xf3d74259, 0xe9ee185e,
+        0xe905e449, 0x6ac19912, 0x446fcbf7, 0x20e46929,
+        0x7ce25b11, 0xe75eecaa, 0x63b07f21, 0xae00519f
+};
+
+ulong r_squared_val[96] = {
+
+        0x0fe6f04b, 0xb61a4192, 0x509c6eda, 0x5560afb9,
+        0x3cd3077a, 0x4c6099cc, 0x46512240, 0x3d8aa8d1,
+        0xc70635c5, 0x3693d2a3, 0x7362fe16, 0xa980cd0d,
+        0x70b7a925, 0x4b7db59e, 0xceb86347, 0x09ca3b6b,
+        0xa85d1226, 0x0215f236, 0xe91af715, 0x59903d14,
+        0xf1e240fa, 0x0a349648, 0xc6b6c783, 0x6fb47b69,
+        0x84875cb3, 0xc97afd0d, 0xd5026c5a, 0x65a2a145,
+        0xec95dbcf, 0x7f48c78d, 0xe9480aa2, 0x830937b9,
+        0xf17b9ab9, 0xe1ec0b0d, 0xe624bcec, 0x718f0f70,
+        0x94cc9a9a, 0xae37fb5d, 0x22652bad, 0x47a06ecf,
+        0xce4c82e4, 0x6c001b95, 0x50af61b8, 0xf746cdfd,
+        0xf8eb575e, 0x8f881f76, 0x705ad8cd, 0x2e28ec3e,
+        0xdbe2411b, 0x271e6964, 0x04b42557, 0xac99a2b1,
+        0x1c23f30f, 0x6f89a839, 0x57c6df6c, 0x3f6bfc37,
+        0xa017e5ed, 0x564bc2dc, 0xfdbc9958, 0xb58c826d,
+        0x6405b23c, 0xeb6f5f67, 0x236b6f6f, 0x061998ad,
+        0xc252ac10, 0x2b25737f, 0x1c1efaec, 0x6d328e60,
+        0x33e10387, 0x146f6c7d, 0xea123c50, 0x824231aa,
+        0xa35d7e99, 0xb85b981b, 0xbf04bd15, 0x3a134256,
+        0x5b8ff8db, 0xa38f66c0, 0x11b52719, 0xed40a7b9,
+        0xf414f7fe, 0xd839d0d7, 0x6fe251f0, 0x99401f92,
+        0xe8d8fdec, 0x42d825fc, 0x6ebbeaf5, 0x9f5bc01f,
+        0xd6d0e0ed, 0xe8f774ce, 0x208e97dd, 0xcb1da970,
+        0x78b49096, 0x082b7e21, 0x20dfe145, 0x3de47bba
+};
+
+uint pubkey_len = 0xc00;
+uint32_t pubkey_n0inv = 0xb92175a1;

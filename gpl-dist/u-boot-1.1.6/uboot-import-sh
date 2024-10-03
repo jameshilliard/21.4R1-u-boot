@@ -1,0 +1,93 @@
+#!/bin/sh
+# $Id$
+#
+# Copyright (c) 2007-2010, Juniper Networks, Inc.
+# All rights reserved.
+
+CVS=${CVS:-/volume/fwtools/cvs/1.12.12.1.1-JNPR_2005_3_0/bin/cvs}
+CVSROOT=freebase.juniper.net:/cvs/junos-2001
+#CVSROOT=freebase.juniper.net:/cvs/cvs-data/junos-2001-hajay-20071106
+
+# Check if this is the u-boot distribution directory
+if test -s lib_ppc/board.c
+then
+    case `cat CVS/Root 2>/dev/null` in
+        *junos-2001*) echo "Must not be in a checked out JUNOS tree"; exit  1;;
+        esac
+else
+        echo "Must import from a u-boot directory structure"; exit 1
+fi
+
+
+while :
+do
+        case "$1" in
+        *=*) eval "$1"; shift;;
+        --) shift; break;;
+        -n) ECHO=echo; shift;;
+	-u) URL=$2; shift 2;;
+        -P) PR=$2; shift 2;;
+        -V) VERSION=$2; shift 2;;
+        -h) echo "Usage: -P <PR #> -V <version #>" ; exit 1;;
+        *) break;;
+        esac
+done
+
+[ "$PR" ] || { echo "We will need a PR.  Use -P <PR>." >&2; exit 1; }
+
+version_needed () {
+    echo "We will need a version.  $1 not found in Makefile" >&2
+    exit 1
+}
+
+# check that specified version is correct
+SRC_VER=`grep "^VERSION " Makefile | awk '{ print $3 }'`
+[ "$SRC_VER" ] || version_needed VERSION
+
+SRC_PATCH=`grep "^PATCHLEVEL " Makefile | awk '{ print $3 }'`
+[ "$SRC_PATCH" ] || version_needed PATCHLEVEL
+
+SRC_SUBLEVEL=`grep "^SUBLEVEL " Makefile | awk '{ print $3 }'`
+[ "$SRC_SUBLEVEL" ] || version_needed SUBLEVEL
+
+SRC_VERSION="${SRC_VER}_${SRC_PATCH}_${SRC_SUBLEVEL}"
+# Default the version to the one read from the files. Allow
+# the '-V version' command-line to use that version as a prefix
+# if necessary to allow a new timestamp suffix to be added if needed.
+VERSION=${VERSION:-${SRC_VERSION}}
+case $VERSION in
+${SRC_VERSION}*) ;;
+*) echo "Version read from sources $SRC_VERSION not a prefix of $VERSION" >&2
+   echo "aborting import" >&2
+   exit 1
+;;
+esac
+
+VERSION_TAG=`echo UBOOT_${VERSION} | tr ' .' '-_'`
+
+# make sure the tag is not already used
+$CVS -d $CVSROOT rlog \
+    `find . -type f 2>/dev/null | \
+     sed 's,^\.,src/juniper/contrib/u-boot,'` 2>/dev/null \
+    | egrep "^[[:space:]]${VERSION_TAG}: [0-9.]+" 2>&1 >/dev/null && \
+    { echo "CVS tag '$VERSION_TAG' is already being used"; exit 1; }
+
+# make sure CVS is executable and supports the -X flag
+[ -x "$CVS" ] || { echo "$CVS is not executable"; exit 1; }
+$CVS -H import 2>&1 | egrep '^[[:space:]]*-X' >/dev/null || \
+    { echo "$CVS does not support the -X flag, it is needed for this import"; \
+      exit 1; }
+
+MESSAGE=
+if [ "$URL" ]; then
+  MESSAGE="Source URL: $URL"
+fi
+
+$ECHO ${CVS:-cvs} -d $CVSROOT import -ko -X -I! -I CVS -I board \
+        -m "Import u-boot $VERSION 
+U-BOOT The universal boot loader 
+
+Home Page URL: http://www.denx.de/wiki/UBoot
+$MESSAGE
+PR: $PR" \
+        src/juniper/contrib/u-boot UBOOT $VERSION_TAG

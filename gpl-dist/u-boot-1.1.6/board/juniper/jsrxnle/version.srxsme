@@ -1,0 +1,40 @@
+/*
+ * $Id: version.srxsme,v 1.2.6.2 2009-09-24 13:07:15 jyan Exp $
+ *
+ * version.srxsme - U-boot version numbering related data 
+ *
+ * Copyright (c) 2009-2013, Juniper Networks, Inc.
+ * All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of
+ * the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+ * MA 02111-1307 USA
+ */
+
+2.12:   SRX550 fix usb bootup issue
+2.11:   SRX550 and SRX550M support veloader
+2.9:    SRX550M (Onager) support
+2.8:	Fixed SRX 210HE2 NAND flash problem, fixed SRX650 load from TFTP.
+2.7:	Fixed SRX100H2 memory problem.
+2.6:	Fixed SRX100 memory problem.
+2.5:	Unified U-boot support for all SRX platforms including
+	2G Refresh and SRX550.
+2.2:	SRX550 (Magni) support
+2.1:	SRX110 (Sigyn) support
+2.0:	SRX210 600mhz Support. Bumping to 2.0 instead of 1.10 due to an issue 
+	in auto-upgrade script's version check.
+1.9:	General U-boot Release for all (srx100/210/220/240/650) platforms.
+1.7:	Next ECO version for SRXSME U-Boot.
+1.6:	Intermediate ECO for Narfi DDR changes.
+1.5:	The new versioning system. This is more like release and API version.

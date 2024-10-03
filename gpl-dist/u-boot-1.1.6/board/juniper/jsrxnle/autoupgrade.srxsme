@@ -1,0 +1,32 @@
+\$Id: $
+
+#########################################################################
+#
+# Copyright (c) 2010, Juniper Networks, Inc.
+# All rights reserved.
+#
+#########################################################################
+# BIOS Autoupgrade rules
+#
+# Each row has 
+#     Product_Family <space> minimum compatible active BIOS version 
+#     <space> minimum compatible backup BIOS version
+#
+# For a product family,
+#     active BIOS should be > mininum compatible active BIOS version
+#     backup BIOS should be > mininum compatible backup BIOS version
+#########################################################################
+	
+#product  min-active  min-backup
+srx550    2.12        2.12
+srx550m   2.12        2.12
+srx300    3.10        3.10
+srx320    3.10        3.10
+srx340    3.10        3.10
+srx345    3.10        3.10
+srx380    3.10        3.10
+srx100    2.7         2.7
+srx210    1.5         1.5
+srx240    1.5         1.5
+srx650    1.5
+srx220    1.9         1.9

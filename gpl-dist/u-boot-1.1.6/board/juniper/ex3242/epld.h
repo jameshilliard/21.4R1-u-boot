@@ -1,0 +1,179 @@
+/*
+ * Copyright (c) 2006-2010, Juniper Networks, Inc.
+ * All rights reserved.
+ *
+ * EPLD
+ *
+ */
+
+#ifndef __EPLD__
+#define __EPLD__
+
+enum {
+    EPLD_RESET_BLOCK_UNLOCK = 0x00,
+    EPLD_CPU_RESET = 0x01,
+    EPLD_SYSTEM_RESET = 0x02,
+    EPLD_WATCHDOG_ENABLE = 0x03,
+    EPLD_WATCHDOG_SW_UPDATE = 0x04,
+    EPLD_WATCHDOG_L1_TIMER = 0x05,
+    EPLD_WATCHDOG_L2_TIMER = 0x06,
+    EPLD_WATCHDOG_L3_TIMER = 0x07,
+    EPLD_WATCHDOG_L4_TIMER = 0x08,
+    EPLD_WATCHDOG_LEVEL_DEBUG = 0x09,
+    EPLD_INT_STATUS1 = 0x0A,
+    EPLD_INT_STATUS2 = 0x0B,
+    EPLD_INT_MASK1 = 0x0C,
+    EPLD_INT_MASK2 = 0x0D,
+    EPLD_LCD_DATA = 0x0E,
+    EPLD_RSVD_1 = 0x0F,
+    EPLD_MISC_CONTROL_0 = 0x10,
+    EPLD_MISC_CONTROL = 0x11,
+    EPLD_LAST_RESET = 0x12,
+    EPLD_PUSH_BUTTON = 0x13,
+    EPLD_LED_AB_PORT_1_4 = 0x14,
+    EPLD_LED_AB_PORT_5_8 = 0x15,
+    EPLD_LED_AB_PORT_9_12 = 0x16,
+    EPLD_LED_AB_PORT_13_16 = 0x17,
+    EPLD_LED_AB_PORT_17_20 = 0x18,
+    EPLD_LED_AB_PORT_21_24 = 0x19,
+    EPLD_LED_AB_PORT_25_28 = 0x1A,
+    EPLD_LED_AB_PORT_29_32 = 0x1B,
+    EPLD_LED_AB_PORT_33_36 = 0x1C,
+    EPLD_LED_AB_PORT_37_40 = 0x1D,
+    EPLD_LED_AB_PORT_41_44 = 0x1E,
+    EPLD_LED_AB_PORT_45_48 = 0x1F
+};
+
+#define EPLD_LAST_RESET_BLOCK_REG   (EPLD_WATCHDOG_L4_TIMER)
+#define EPLD_LAST_REG                           (EPLD_LED_AB_PORT_45_48)
+#define EPLD_FIRST_PORT_LED_REG       (EPLD_LED_AB_PORT_1_4)
+
+/* EPLD_RESET_BLOCK_UNLOCK */
+#define EPLD_MAGIC 0x1A2B
+
+/* EPLD_CPU_RESET = 0x01 */
+#define EPLD_CPU_SOFT_RESET (1<<1)
+#define EPLD_CPU_HARD_RESET (1<<0)
+
+/* EPLD_SYSTEM_RESET */
+#define EPLD_SYS_RESET_HOLD (1<<1)
+#define EPLD_SYS_RESET (1<<0)
+
+/* EPLD_WATCHDOG_ENABLE */
+#define EPLD_WDOG_ENABLE (1<<0)
+
+/* EPLD_WDOG_SW_UPDATE */
+#define EPLD_WDOG_KICK (1<<0)
+
+/* EPLD_WDOG_LEVEL_DEBUG */
+#define EPLD_WDOG_LEVEL_IDLE (1<<0)
+#define EPLD_WDOG_LEVEL_ONE (1<<1)
+#define EPLD_WDOG_LEVEL_TWO (1<<2)
+#define EPLD_WDOG_LEVEL_THREE (1<<3)
+#define EPLD_WDOG_LEVEL_FOUR (1<<4)
+
+/* EPLD_INT_STATUS1 */
+#define EPLD_QUAD_PHY_1 (1<<0)
+#define EPLD_QUAD_PHY_2 (1<<1)
+#define EPLD_QUAD_PHY_3 (1<<2)
+#define EPLD_QUAD_PHY_4 (1<<3)
+#define EPLD_QUAD_PHY_5 (1<<4)
+#define EPLD_QUAD_PHY_6 (1<<5)
+#define EPLD_QUAD_PHY_7 (1<<6)
+#define EPLD_QUAD_PHY_8 (1<<7)
+#define EPLD_QUAD_PHY_9 (1<<8)
+#define EPLD_QUAD_PHY_10 (1<<9)
+#define EPLD_QUAD_PHY_11 (1<<10)
+#define EPLD_SINGLE_PHY_1 (1<<11)
+#define EPLD_SINGLE_PHY_2 (1<<12)
+#define EPLD_SINGLE_PHY_3 (1<<13)
+#define EPLD_SINGLE_PHY_4 (1<<14)
+#define EPLD_MGMTE_PHY (1<<15)
+
+/* EPLD_INT_STATUS2 */
+#define EPLD_USB_HC (1<<0)
+#define EPLD_HW_MONITOR (1<<1)
+#define EPLD_POE_CTRL (1<<2)
+#define EPLD_SFP_I2C_EXPANDER_1 (1<<3)
+#define EPLD_SFP_I2C_EXPANDER_0 (1<<4)
+#define EPLD_XFP_I2C_EXPANDER (1<<5)
+#define EPLD_UPLINKP_I2C_EXPANDER (1<<6)
+#define EPLD_PS1_FAN_FAIL_0 (1<<7)
+#define EPLD_PS1_FAN_FAIL_1 (1<<8)
+#define EPLD_PS1_FAN_FAIL_2 (1<<9)
+#define EPLD_RPS_PG (1<<10)
+#define EPLD_ONBOARD_XFP (1<<11)
+#define EPLD_DCD (1<<12)
+#define EPLD_MAC_IN_DONE_0 (1<<13)
+#define EPLD_MAC_IN_DONE_1 (1<<14)
+#define EPLD_MAC_IN_DONE_2 (1<<15)
+
+/* EPLD_MISC_CONTROL_0 */
+#define EPLD_MAC_EEPROM_VCC_1 (1 << 0)
+#define EPLD_MAC_EEPROM_VCC_0 (1 << 1)
+#define EPLD_UPLINK_STATUS_LED_1 (1 << 2)
+#define EPLD_UPLINK_STATUS_LED_0 (1 << 3)
+#define EPLD_MAC_DEV_EN_1 (1 << 4)
+#define EPLD_MAC_DEV_EN_0 (1 << 5)
+#define EPLD_REMOVE_SIC_RESET (1 << 6)
+#define EPLD_RDDRRST (1 << 7)
+#define EPLD_DTR (1 << 8)
+#define EPLD_MAC_EEPROM_VCC_2 (1 << 9)
+#define EPLD_MAC_DEV_EN_2 (1 << 10)
+#define EPLD_PS_IN_TYPE (1 << 11)
+#define EPLD_MAC2_SMI_SEL (1 << 12)
+
+/* EPLD_MISC_CONTROL */
+#define EPLD_UPLINK_HOTSWAP_LED_ON (1<<0)
+#define EPLD_POE_PORTS_ENABLE (1<<1)
+#define EPLD_POE_CONTROLLER_RESET (1<<2)  /* Sumatra */
+#define EPLD_RJ45_UPLINK_LATTE (1<<2)
+#define EPLD_LCD_BACKLIGHT_ON (1<<3)
+#define EPLD_1V_NORMAL (0<<4)
+#define EPLD_1V_NEG_5 (0x1<<4)
+#define EPLD_1V_POS_5 (0x2<<4)
+#define EPLD_3_3V_NORMAL (0<<6)
+#define EPLD_3_3V_NEG_5 (0x1<<6)
+#define EPLD_3_3V_POS_5 (0x2<<6)
+#define EPLD_LCD_RS_INSTRUCTION (0<<8)
+#define EPLD_LCD_RS_DATA (1<<8)
+#define EPLD_LCD_READ (1<<9)
+#define EPLD_LCD_WRITE (0<<9)
+#define MGMT_PORT_LINK_UP (1<<12)
+#define MGMT_PORT_NO_LINK (0<<12)
+#define MGMT_PORT_SPEED_1G (0x1<<13)
+#define MGMT_PORT_SPEED_10G (0x3<<13)
+#define MGMT_PORT_SPEED_10M (0x0<<13)
+#define MGMT_PORT_SPEED_100M (0x2<<13)
+#define MGMT_PORT_HALF_DUPLEX (0<<15)
+#define MGMT_PORT_FULL_DUPLEX (1<<15)
+
+/* EPLD_LAST_RESET */
+#define EPLD_GLOBAL_RESET (1<<0)
+#define EPLD_SOFT_RESET (1<<1)
+#define EPLD_HARD_RESET (1<<2)
+#define EPLD_WDOG_GLOBAL_RESET (1<<3)
+#define EPLD_WDOG_HARD_RESET (1<<4)
+#define EPLD_WDOG_SOFT_RESET (1<<5)
+#define EPLD_WDOG_NMI (1<<6)
+#define EPLD_POWER_ON_RESET (1<<7)
+
+/* EPLD_PUSH_BUTTON */
+#define EPLD_BUTTON_1_DOWN (1<<0)
+#define EPLD_BUTTON_2_DOWN (1<<1)
+#define EPLD_FAN_TRAY_NOT_PRESENT (1<<3)
+
+/* Port LED */
+#define EPLD_PORT_HALF_DUPLEX (0<<0)
+#define EPLD_PORT_FULL_DUPLEX (1<<0)
+#define EPLD_PORT_SPEED_10M (0x0<<1)
+#define EPLD_PORT_SPEED_100M (0x1<<1)
+#define EPLD_PORT_SPEED_1G (0x2<<1)
+#define EPLD_PORT_SPEED_10G (0x3<<1)
+#define EPLD_PORT_LINK_UP (1<<3)
+#define EPLD_PORT_NO_LINK (0<<3)
+
+extern int epld_reg_read(int reg, uint16_t *val);
+extern int epld_reg_write(int reg, uint16_t val);
+
+#endif /*__EPLD__*/
